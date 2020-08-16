@@ -1,5 +1,4 @@
 #!/bin/bash
 echo "copy infra files"
-
-cp -R /tmp/test/application-pipelines ./
-cp -R /tmp/test/environments ./
+cp -R /tmp/test/* ./
+chmod 777 -R ./
