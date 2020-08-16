@@ -27,28 +27,25 @@ pipeline {
             steps {
               sh """
                 chmod 777 -R */*
-                cp /root/aks-cluster/test/copy-infra.sh ./
-                chmod a+x copy-infra.sh
+                cp /tmp/test/copy-infra.sh ./                
                 ./create-infra.sh
     			    """
             }
         }
 
-        stage('Creating Infra in Azure') {
+        stage('Creating Infra in cloud') {
             steps {                
               sh """
-               cp /root/aks-cluster/test/create-infra.sh ./
-               chmod a+x create-infra.sh
+               cp /tmp/test/create-infra.sh ./
                ./deploy-infra.sh
   	        	"""
             }
         }
         
-        stage('Deploy Infra in Azure') {
+        stage('Deploy Infra in cloud') {
             steps {
               sh """
-               cp /root/aks-cluster/test/deploy-infra.sh ./
-               chmod a+x deploy-infra.sh
+               cp /tmp/test/deploy-infra.sh ./
                ./deploy-infra.sh
     			    """
             }
