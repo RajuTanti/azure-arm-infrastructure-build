@@ -28,7 +28,7 @@ pipeline {
               sh """
                 chmod 777 -R */*
                 cp /tmp/test/copy-infra.sh ./                
-                ./create-infra.sh
+                ./copy-infra.sh
     			    """
             }
         }
@@ -36,8 +36,9 @@ pipeline {
         stage('Creating Infra in cloud') {
             steps {                
               sh """
+              chmod 777 -R */*
                cp /tmp/test/create-infra.sh ./
-               ./deploy-infra.sh
+               ./create-infra.sh
   	        	"""
             }
         }
@@ -45,6 +46,7 @@ pipeline {
         stage('Deploy Infra in cloud') {
             steps {
               sh """
+              chmod 777 -R */*
                cp /tmp/test/deploy-infra.sh ./
                ./deploy-infra.sh
     			    """
