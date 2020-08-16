@@ -26,9 +26,9 @@ pipeline {
         stage('Copy Infra code') {            
             steps {
               sh """
-                sudo cp /root/aks-cluster/test/copy-infra.sh ./
-                sudo chmod a+x copy-infra.sh
-                sudo ./create-infra.sh
+                cp /root/aks-cluster/test/copy-infra.sh ./
+                chmod a+x copy-infra.sh
+                ./create-infra.sh
     			    """
             }
         }
@@ -36,9 +36,9 @@ pipeline {
         stage('Creating Infra in Azure') {
             steps {                
               sh """
-               sudo cp /root/aks-cluster/test/create-infra.sh ./
-               sudo chmod a+x create-infra.sh
-               sudo ./deploy-infra.sh
+               cp /root/aks-cluster/test/create-infra.sh ./
+               chmod a+x create-infra.sh
+               ./deploy-infra.sh
   	        	"""
             }
         }
@@ -46,9 +46,9 @@ pipeline {
         stage('Deploy Infra in Azure') {
             steps {
               sh """
-               sudo cp /root/aks-cluster/test/deploy-infra.sh ./
-               sudo chmod a+x deploy-infra.sh
-               sudo ./deploy-infra.sh
+               cp /root/aks-cluster/test/deploy-infra.sh ./
+               chmod a+x deploy-infra.sh
+               ./deploy-infra.sh
     			    """
             }
         }
