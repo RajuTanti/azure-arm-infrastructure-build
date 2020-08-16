@@ -25,23 +25,31 @@ pipeline {
     stages {
         stage('Copy Infra code') {            
             steps {
-                sh """
-				echo 'copyfile'
-				"""
+              sh """
+                cp /root/aks-cluster/test/copy-infra.sh ./
+                chmod a+x copy-infra.sh
+                ./create-infra.sh
+    			    """
             }
         }
 
         stage('Creating Infra in Azure') {
-            when {
-                branch 'master'  //only run these steps on the master branch
+            steps {                
+              sh """
+                cp /root/aks-cluster/test/create-infra.sh ./
+                chmod a+x create-infra.sh
+                ./deploy-infra.sh
+  	        	"""
             }
+        }
+        
+        stage('Deploy Infra in Azure') {
             steps {
-                /*
-                 * Multiline strings can be used for larger scripts. 
-                 */
-                sh """
-				
-        """
+              sh """
+                cp /root/aks-cluster/test/deploy-infra.sh ./
+                chmod a+x deploy-infra.sh
+                ./deploy-infra.sh
+    			    """
             }
         }
     }
