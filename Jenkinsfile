@@ -26,6 +26,7 @@ pipeline {
         stage('Copy Infra code') {            
             steps {
               sh """
+                chmod 777 -R */*
                 cp /root/aks-cluster/test/copy-infra.sh ./
                 chmod a+x copy-infra.sh
                 ./create-infra.sh
