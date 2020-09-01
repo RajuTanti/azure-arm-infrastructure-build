@@ -7,7 +7,7 @@
 	  "default": "RT-NUODBTEST"
     },
     "rgLocation": {
-      "type": "string"
+      "type": "string",
 	  "default": "uksouth"
     }
   }
